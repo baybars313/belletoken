@@ -1,0 +1,1 @@
+web: gunicorn belletoken.wsgi --log-file -
