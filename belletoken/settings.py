@@ -55,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
 
 ROOT_URLCONF = 'belletoken.urls'
@@ -149,6 +150,12 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
@@ -177,15 +184,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:3000',
 ]
 
-CSRF_USE_SESSIONS = True
-CSRF_COOKIE_HTTPONLY = True         # Not accessible by client (not important)
-#CSRF_COOKIE_AGE = 8 * 3600           # Expires after 8 hr
-CSRF_COOKIE_SECURE = True          # Only HTTPS
-CSRF_COOKIE_SAMESITE = None
-SESSION_COOKIE_SAMESITE = None
-SESSION_COOKIE_HTTPONLY = False      # Not accessible by client 
-#SESSION_COOKIE_AGE = 8 * 3600        # Expires after 8 hr
-SESSION_COOKIE_SECURE = True        # Only HTTPS
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[ (os.path.join(BASE_DIR, "static"))]
 STATIC_ROOT = "/static/"
