@@ -178,12 +178,12 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 CSRF_USE_SESSIONS = True
-CSRF_COOKIE_HTTPONLY = False         # Not accessible by client (not important)
+CSRF_COOKIE_HTTPONLY = True         # Not accessible by client (not important)
 #CSRF_COOKIE_AGE = 8 * 3600           # Expires after 8 hr
 CSRF_COOKIE_SECURE = True          # Only HTTPS
-CSRF_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_SAMESITE = 'None'
-SESSION_COOKIE_HTTPONLY = True      # Not accessible by client 
+CSRF_COOKIE_SAMESITE = None
+SESSION_COOKIE_SAMESITE = None
+SESSION_COOKIE_HTTPONLY = False      # Not accessible by client 
 #SESSION_COOKIE_AGE = 8 * 3600        # Expires after 8 hr
 SESSION_COOKIE_SECURE = True        # Only HTTPS
 STATIC_URL = '/static/'
