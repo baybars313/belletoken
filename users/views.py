@@ -39,6 +39,8 @@ class LoginView(APIView):
         response.data={
             "msg":"success"
         }
+        response.cookies['jwt']['samesite'] = 'None'
+        response.cookies['jwt']['secure'] = True
         
         return response
         
