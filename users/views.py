@@ -35,9 +35,10 @@ class LoginView(APIView):
 
         token=jwt.encode(payload, "secret", algorithm="HS256")
         response=Response()
-        response.set_cookie(key="jwt", value=token, httponly=False)
+        response.set_cookie(key="jwt", value=token, httponly=True)
         response.data={
-            "msg":"success"
+            "msg":"success",
+            "jwt":token
         }
         response.cookies['jwt']['samesite'] = 'None'
         response.cookies['jwt']['secure'] = True
